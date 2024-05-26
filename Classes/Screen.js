@@ -17,7 +17,7 @@ class Screen {
         for (let Y = 0; Y < this.grid.length; Y++) {
 
             for (let X = 0; X < this.grid[Y].length; X++){
-                temp_row += "O";
+                temp_row += " D";
             }
 
             output += temp_row.trim() + "\n";
