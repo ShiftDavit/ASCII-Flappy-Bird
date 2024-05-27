@@ -1,4 +1,4 @@
-const EMPTY_CELL = "•";
+const EMPTY_CELL = "+";
 const FILLED_CELL = "#";
 
 /*
@@ -25,10 +25,28 @@ class Screen {
     }
 
     fill_cell(x, y){
+
         this.grid[y][x] = true;
     }
 
-    toString(){
+    fill_block(startX, startY, endX, endY){
+
+        let minX = Math.min(startX, endX);
+        let maxX = Math.max(startX, endX);
+        let minY = Math.min(startY, endY);
+        let maxY = Math.max(startY, endY);
+
+        for (let Y = minY; Y <= maxY; Y++){
+            
+            for (let X = minX; X <= maxX; X++){                
+                this.fill_cell(X, Y);
+            }                
+        
+        }
+        
+    }
+
+    update(){
         
         let output = "";
         let temp_row = "";
@@ -37,13 +55,8 @@ class Screen {
         for (let Y = 0; Y < this.grid.length; Y++) {
 
             for (let X = 0; X < this.grid[Y].length; X++){
-                switch (this.grid[Y][X]){
-                    case true:
-                        current_cell = FILLED_CELL;
-                        break;
-                    default:
-                        current_cell = EMPTY_CELL;
-                }
+
+                current_cell = this.grid[Y][X] ? FILLED_CELL : EMPTY_CELL;
                 temp_row += " " + current_cell;
             }
 
@@ -51,7 +64,8 @@ class Screen {
             temp_row = "";
         }
 
-        return output;
+        console.clear();
+        console.log(output);
     }
 }
 

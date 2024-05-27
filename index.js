@@ -1,11 +1,18 @@
 const Screen = require("./Classes/Screen");
 
-let screen_size_Y = 10;
-let screen_size_X = 10;
+let screen_size_Y = 9;
+let screen_size_X = 16;
 
 let testScreen = new Screen(screen_size_X, screen_size_Y);
 
-testScreen.fill_cell(0, 0);
-testScreen.fill_cell(5, 5);
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
-process.stdout.write(testScreen.toString());
+console.clear();
+setInterval(() => {
+    testScreen.fill_cell(getRandomInt(screen_size_X-1), getRandomInt(screen_size_Y-1));
+    testScreen.update();
+}, 1000);
+
+setTimeout(() => {process.exit()}, 10000);
