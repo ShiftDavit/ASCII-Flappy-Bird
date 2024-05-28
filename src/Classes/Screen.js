@@ -1,4 +1,4 @@
-const EMPTY_CELL = "+";
+const EMPTY_CELL = ".";
 const FILLED_CELL = "#";
 
 /*
