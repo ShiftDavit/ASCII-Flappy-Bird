@@ -1,14 +1,18 @@
+/* - Screen Class
+   - The artificial screen class that hadnles the grid info
+\*/
+
 const EMPTY_CELL = ".";
 const FILLED_CELL = "#";
 
 /*
     5x5 grid example
     grid = [
-        [*,*,*,*,*],
-        [*,*,*,*,*],
-        [*,*,*,*,*],
-        [*,*,*,*,*],
-        [*,*,*,*,*]
+        [false,false,false,false,false],
+        [false,false,false,false,false],
+        [false,false,false,false,false],
+        [false,false,false,false,false],
+        [false,false,false,false,false]
     ]
 */
 
