@@ -8,6 +8,9 @@ if (process.stdin.isTTY)
     process.stdin.setRawMode(true);
 
 process.stdin.on('keypress', (chunk, key) => {
+
+    console.log(key.name);
+
     if (binds.has(key.name)) {
         let args = binds.get(key.name)[2];
         binds.get(key.name)[0](args);

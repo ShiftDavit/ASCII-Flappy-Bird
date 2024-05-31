@@ -10,7 +10,7 @@ let screen_size_X = 16;
 
 let testScreen = new Screen(screen_size_X, screen_size_Y);
 
-ComponentRenderer.spawn(testScreen, [4,5], [2,3]);
+let testComponent = ComponentRenderer.spawn(testScreen, [4,5], [2,3]);
 
 testScreen.update();
 setInterval(() => {

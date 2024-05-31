@@ -10,7 +10,8 @@ const DEFAULT_POSITION = [0, 0];
 class Component {
    constructor(position = DEFAULT_POSITION, size = DEFAULT_SIZE) {
       this.size = size;
-      this.position = position;
+      this.positionX = position[0];
+      this.positionY = position[1];
    }
 
    get getPosition(){
@@ -21,11 +22,12 @@ class Component {
       return this.size;
    }
 
-   set move(new_position){
-      this.position = new_position;
+   move(x = 0,y = 0){
+      this.positionX = x;
+      this.positionY = y;
    }
 
-   set resize(new_size){
+   resize(new_size){
       this.size = new_size;
    }
 
