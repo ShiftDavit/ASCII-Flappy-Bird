@@ -1,5 +1,6 @@
 /* - Screen Class
-   - The artificial screen class that hadnles the grid info
+   - The artificial screen class that displays the game in stdout
+   - Each cell is a binary value (boolean) that represents whether the cell is empty or not
 \*/
 
 const EMPTY_CELL = ".";
@@ -24,7 +25,7 @@ class Screen {
         this.sizeY = sizeY;
 
         for (let i = 0; i < sizeY; i++){
-            this.grid[i] = new Array(sizeX);
+            this.grid[i] = new Array(sizeX).fill(false);
         }
     }
 
@@ -40,9 +41,9 @@ class Screen {
         let minY = Math.min(startY, endY);
         let maxY = Math.max(startY, endY);
 
-        for (let Y = minY; Y <= maxY; Y++){
+        for (let Y = minY; Y <= Math.min(maxY, this.sizeY); Y++){
             
-            for (let X = minX; X <= maxX; X++){                
+            for (let X = minX; X <= Math.min(maxX, this.sizeX); X++){                
                 this.fill_cell(X, Y);
             }                
         
@@ -61,16 +62,15 @@ class Screen {
     }
 
     update(){
-        
         let output = "";
         let temp_row = "";
         let current_cell;
 
-        for (let Y = 0; Y < this.grid.length; Y++) {
+        for (let Y = 0; Y < this.sizeY; Y++) {
 
-            for (let X = 0; X < this.grid[Y].length; X++){
+            for (let X = 0; X < this.sizeX; X++){
 
-                current_cell = this.grid[Y][X] ? FILLED_CELL : EMPTY_CELL;
+                current_cell = this.grid[Y][X]===true ? FILLED_CELL : EMPTY_CELL;
                 temp_row += " " + current_cell;
             }
 
