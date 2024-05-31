@@ -8,11 +8,11 @@ const FILLED_CELL = "#";
 /*
     5x5 grid example
     grid = [
-        [false,false,false,false,false],
-        [false,false,false,false,false],
-        [false,false,false,false,false],
-        [false,false,false,false,false],
-        [false,false,false,false,false]
+        [f,f,f,f,f],
+        [f,f,f,f,f],
+        [f,f,f,f,f],
+        [f,f,f,f,f],
+        [f,f,f,f,f]
     ]
 */
 
