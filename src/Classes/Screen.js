@@ -33,7 +33,7 @@ class Screen {
         this.grid[y][x] = true;
     }
 
-    fill_block(startX, startY, endX, endY){
+    fill_block(startX, startY, endX, endY, state){
 
         let minX = Math.min(startX, endX);
         let maxX = Math.max(startX, endX);
@@ -48,6 +48,16 @@ class Screen {
         
         }
         
+    }
+
+    clear(){
+        for (let Y = 0; Y < this.sizeY; Y++){
+            
+            for (let X = 0; X < this.sizeX; X++){                
+                this.grid[Y][X] = false;
+            }                
+        
+        }
     }
 
     update(){
