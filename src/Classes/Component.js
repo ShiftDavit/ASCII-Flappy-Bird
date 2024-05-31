@@ -3,15 +3,16 @@
    - Holds information about size vector and 2d position of the bounding box
 */
 
-const DEFAULT_SIZE = [1, 1];
-const DEFAULT_POSITION = [0, 0];
+const Vector2 = require("./Vector2");
+
+const DEFAULT_SIZE = new Vector2(0,0);
+const DEFAULT_POSITION = new Vector2(0,0);
 
 
 class Component {
    constructor(position = DEFAULT_POSITION, size = DEFAULT_SIZE) {
       this.size = size;
-      this.positionX = position[0];
-      this.positionY = position[1];
+      this.position = position;
    }
 
    get getPosition(){
@@ -22,13 +23,12 @@ class Component {
       return this.size;
    }
 
-   move(x = 0,y = 0){
-      this.positionX = x;
-      this.positionY = y;
+   moveTo(vec2){
+      this.position.set(vec2);
    }
 
    resize(new_size){
-      this.size = new_size;
+      this.size.set(new_size);
    }
 
 }
