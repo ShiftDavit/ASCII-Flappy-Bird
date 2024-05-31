@@ -1,14 +1,41 @@
 const Component = require('./Classes/Component');
 
-function spawn(Screen, position = [0,0], size = [0,0]) {
-    let newComponent = new Component(position, size);
+let Screen = null;
+let components = [];
+
+function setScreen(newScreen){
+    Screen = newScreen;
+}
+
+function spawn(component) {
+    let position = component.position;
+    let size = component.size;
 
     let p1 = position; 
-    let p2 = [positionX + size[0] - 1, positionY + size[1] - 1];
+    let p2 = [position.x + size.x - 1, position.y + size.y - 1];
 
-    Screen.fill_block(p1[0],p1[1], p2[0], p2[1]);
+    Screen.fill_block(p1.x,p1.y, p2[0], p2[1], true);
+}
+
+function addComponent(position, size) {
+    let newComponent = new Component(position, size);
+
+    components.push(newComponent);
 
     return newComponent;
 }
 
-module.exports = {spawn};
+function update(){
+    Screen.clear(); 
+    for(let i = 0; i < components.length; i++){
+        spawn(components[i]);
+    }
+    Screen.update();
+}
+
+module.exports = {
+    update,
+    spawn,
+    addComponent,
+    setScreen
+}
