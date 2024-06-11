@@ -27,6 +27,11 @@ class Component {
       this.position.set(vec2);
    }
 
+   moveTo(x, y){
+      this.position.x = x;
+      this.position.y = y;
+   }
+
    resize(new_size){
       this.size.set(new_size);
    }

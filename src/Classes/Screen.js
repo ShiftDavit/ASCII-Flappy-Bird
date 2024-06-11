@@ -34,16 +34,16 @@ class Screen {
         this.grid[y][x] = true;
     }
 
-    fill_block(startX, startY, endX, endY, state){
+    fill_block(startX, startY, endX, endY){
 
         let minX = Math.min(startX, endX);
         let maxX = Math.max(startX, endX);
         let minY = Math.min(startY, endY);
         let maxY = Math.max(startY, endY);
 
-        for (let Y = minY; Y <= Math.min(maxY, this.sizeY); Y++){
+        for (let Y = minY; Y <= Math.max(0,(Math.min(maxY, this.sizeY))); Y++){
             
-            for (let X = minX; X <= Math.min(maxX, this.sizeX); X++){                
+            for (let X = minX; X <= Math.max(0,Math.min(maxX, this.sizeX)); X++){                
                 this.fill_cell(X, Y);
             }                
         

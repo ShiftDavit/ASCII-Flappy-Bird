@@ -7,19 +7,13 @@ let screen_size_Y = 9;
 let screen_size_X = 16;
 
 let testScreen = new Screen(screen_size_X, screen_size_Y);
-let testComponent = ComponentRenderer.addComponent(new Vector2(2,2), new Vector2(2,2));
+let testBird = ComponentRenderer.addBird(new Vector2(2,2), new Vector2(2,2));
 
 ComponentRenderer.setScreen(testScreen);
-InputHandler.bind_input('space', process.exit);
-InputHandler.bind_input("right", () => {
-    testComponent.position.x++;
-})
-InputHandler.bind_input("left", () => {
-    testComponent.position.x--;
-})
+InputHandler.bind_input('escape', process.exit);
 
 ComponentRenderer.update();
 setInterval(() => {
     ComponentRenderer.update();
-}, 0);
+}, 200);
 
